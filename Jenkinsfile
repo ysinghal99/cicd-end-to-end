@@ -32,7 +32,9 @@ pipeline {
                 script{
                     sh '''
                     echo 'Push to Repo'
-                    docker push ysinghal99/cicd-e2e:${BUILD_NUMBER}
+                    withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]) {
+                    bat "docker push ysinghal99/cicd-e2e:${BUILD_NUMBER}"
+        }
                     '''
                 }
             }
