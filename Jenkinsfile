@@ -27,18 +27,16 @@ pipeline {
             }
         }
 
-        stage('Push the artifacts'){
+        /*stage('Push the artifacts'){
            steps{
                 script{
                     sh '''
                     echo 'Push to Repo'
-                    withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]) {
-                    bat "docker push ysinghal99/cicd-e2e:${BUILD_NUMBER}"
-        }
+                    docker push ysinghal99/cicd-e2e:${BUILD_NUMBER}
                     '''
                 }
             }
-        }
+        }*/
         
         stage('Checkout K8S manifest SCM'){
             steps { 
